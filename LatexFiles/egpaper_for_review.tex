@@ -1,0 +1,188 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\ifcvprfinal\pagestyle{empty}\fi
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{Institute Vaccine Management Solution}
+
+\author{Isha Gupta\\
+IIIT-H\\
+Gachibowli, Hyderabad\\
+{\tt\small isha.gupta@students.iiit.ac.in}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+% \and
+% Second Author\\
+% Institution2\\
+% First line of institution2 address\\
+% {\tt\small secondauthor@i2.org}
+}
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   Since the World Health Organization (WHO) declared the COVID-19 outbreak a pandemic back in March 2020, the virus has claimed more than 2.5 million lives globally with upwards of 113 million cases being confirmed by laboratory tests. COVID-19 vaccination is now offering a way to transition out of this phase of the pandemic.~\cite{Authors14} But vaccination of such a large population can prove to be fatal instead of beneficial if not handled properly. In this paper, we propose a software architecture to tackle the problem of mass vaccination . 
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+
+The coronavirus pandemic has impacted every corner of life, causing all the global economies to stall, changed the way we all work and communicate with our loved ones, and stretching healthcare systems to the limit. Governments around the world have been forced to impose harsh restrictions on daily humal life activity to stop the spread of the virus.~\cite{Authors14}. In an exponential rise in coronavirus infections in past three days, India has added more than million new cases. Also there is not enough evidence to show that the Janta curfew, night curfew, lockdown does help. It affects the poor section of society even more as they struggle to make their living. So the only solution to fight corona is to vaccinate.~\cite{Alpher02}Without vaccination, many scientists believe that natural immunity would not be sufficient to bring back society to its normal status and that it would have resulted in extreme fatality. This is something that has been stated by many health organizations including the WHO. In a scenario without access to vaccines, strict behavioral measures may have had to remain for the foreseeable future.~\cite{Authors14}
+
+But after all this distributing the vaccines in India’s first mass adult vaccination drive might prove to be a daunting task. It will require expansion of India’s existing cold chain capacity at a break-neck speed, especially in some of the more densely populated parts of the country, where such infrastructure is severely limited.~\cite{Authors14b}
+
+%-------------------------------------------------------------------------
+\subsection{Difficulties in mass vaccination Programme}
+\begin{itemize}
+    \item Logistical Challenge : It will be very difficult to get the right staff in the right place at the right time with the supplies they need, while ensuring that the people they need to vaccinate are also in the same place at the same time.~\cite{Alpher03}
+    \item Transportation and Storage : Vaccines are extremely fragile between the time they are manufactured and the time they are administered to a patient. Vaccines should be stored and transported between 2°C and 8°C (35°F and 46°F). If the temperature varies too greatly, the vaccine can die and become inactive and ineffective. ~\cite{Alpher04}
+    \item Massive Scale Production : Given the extremely large number of people worldwide who will need the vaccine, production capacity is a real concern. Manufacturers will have to scale up production even before a vaccine has been fully tested and approved ~\cite{Alpher04}
+    \item Supply chain shortages: The world does not have enough glass vials to store and administer the vaccine, or the capacity to fill those vials. The type of glass used to manufacture these vials makes up just 10 percent of the glass produced. ~\cite{Alpher04}
+    \item Prioritization : It is simply not possible to produce the nearly eight billion doses of vaccine that the world will require. State and local health departments will make the ultimate decision about who gets vaccinated, based on these guidelines. The top tier generally include frontline workers and elder citizens.
+\end{itemize}
+
+Considering these difficulties and challenges we have to find the solution which to some extent can deal with all such challenges. In this paper the effort has been made to devise a solution which deals with such problems.
+
+%------------------------------------------------------------------------
+\section{Literature Review}
+
+All over the world huge amount of research and studies are going on that try to deal with this problem of mass vaccination and have proposed some solution to this problem.
+
+%-------------------------------------------------------------------------
+\subsection{Taiwan Seasonal Influenza}
+
+Taiwan has a annual seasonal influenza vaccination program which it often uses to develop capacity for emergencies like COVID-19, when it will need to rapidly administer millions of vaccinations. This vaccination program allows Taiwan to provide a regular opportunity to exercise national logistics,  foster collaboration between relevant stakeholders, conduct vaccination operations in a variety of settings, including mass vaccination sites.~\cite{Alpher05}
+
+Like many countries, Taiwan has limited vaccinator capacity among public health officials, so it should use qualified personnel from a variety of sources, including clinicians from local health systems. Using force from many local facilities to conduct mass vaccination, Taiwan can mitigate the burden on health system.~\cite{Alpher05} 
+
+Taiwan evaluates operations at mass vaccination sites or points of dispensing (PODs). Past experiences operating large scale PODs posed some challenges with adverse events such as fainting and temporary loss of consciousness of people. In order to reduce this Taiwan encourages people to eat, listen music and talk to their friends while they wait in line. They also issued guidelines to reduce waiting time in lines, by organizing people in small group. They also used the appointment based system which can also provide physical distancing benefit in COVID-19.~\cite{Alpher05}
+
+Some of Taiwan's key lessons can be applied to increase the efficiency and lower risk of adverse events during vaccination drives.
+
+%-------------------------------------------------------------------------
+\subsection{Mass Vaccination in the US}
+
+A study was conducted in which many state and local health official from across the country of US were interviewed to discuss their experience, plans and best practices for conducting mass vaccination operations. ~\cite{Alpher06}
+\begin{itemize}
+    \item In US, many jurisdictions developed plans under the assumption that vaccine supply would scale up slowly and that priority groups would expand slowly, keeping the vaccination volume low over a longer period of time. ~\cite{Alpher06}
+    \item It was noted that there was limited supply of personnel who were trained and qualified to administer vaccinations. Without organic vaccinators available, health departments identified a variety of sources for qualified personnel such as private sector pharmacists, the Medical Reserve Corps (MRC), and medical and nursing schools.~\cite{Alpher06}
+    \item Cold storage capacity to support community-wide mass vaccination is a major challenge. Purchasing and maintaining dedicated freezer capacity is financially prohibitive for many jurisdictions, especially for highly specialized ultra-cold storage. Some community partners offer temporary refrigerator or freezer space which can be helpful for some vaccines.~\cite{Alpher06} 
+    \item Another challenge seen is time needed to conduct screening questionnaires and review consent information for products with emergency authorizations. Jurisdictions need to incorporate space and time for this process in order to streamline their vaccination operations.~\cite{Alpher06}
+    \item  The process of scheduling a second appointment whether for a second course of antibiotics or a booster dose of vaccine can also pose operational challenges, and jurisdictions need plans to educate the public and schedule follow-up appointments.
+    \item Another challenge is to plan vaccination for vulnerable populations. It is for sure that racial and ethnic minorities are equally affected with COVID-19 pandemic and some of these populations is difficult to engage, majorly when there are language barriers and concerns about immigration status.~\cite{Alpher06}
+\end{itemize}
+This study can be studied by all those who have to drive the vaccination drive. Some challenges can be seen and solution can be think upon so that it doesn't create trouble while vaccination.
+
+%-------------------------------------------------------------------------
+\subsection{Accenture Vaccine Management Solution}
+
+Accenture Vaccine Management Solution exerts support and innovative technologies for distributing COVID-19 vaccines safely, equitably and efficiently. They have four key priorities in their vaccine management solution which are policy - to adhere to CDC guidelines, scalability - prepare to handle more users, inventory management and documentation, Collaboration - to work with local health boards, providers and commercial partners, Funding - To efficiently relocate funding to vaccine distribution and training.
+They have five modules in their provided solution which are Vaccine Management and Tracking Platform - a contact tracing solution, Supply Management, Community Education and Engagement, Contact Management, Analytics and reporting and Organizational Support.~\cite{Alpher07}
+
+This solution try to deal with vaccination management with great efficiency.
+
+%------------------------------------------------------------------------
+\section{System Architecture}
+
+We have designed a web based application which will allow smooth vaccination of people in the campus without any troubles. It handles the registration of users, distribution of vaccines, scheduling of slots for vaccination , stock of vaccines and other functions.
+%-------------------------------------------------------------------------
+\subsection{Overview}
+
+Our System involves following modules:
+\begin{itemize}
+    \item DATABASE : Our database contains all the information about all types of users, their disease history, their login information and all the information about vaccines and slots. Our databases also stores email ids of all the people in campus to ensure that no person from outside institute is able to register.
+    \item NOTIFICATION MANAGER : This will allow the webapp to notfiy and remind the users on their registered email about the next dosage.
+    \item FRONTEND : This module will allow all type of users to interact with system. Residents will be able to see available slots and book slots, admins will be able to see the stats and healthcare staff will be able to create slots and update vaccine information.
+    \item BACKEND : This module will take input from frontend and will interact with database and notification manager to provide a link between all the components.
+\end{itemize}
+
+
+Following are the USERS which will be involved in this system directly or indirectly:
+\begin{itemize}
+    \item Database Server: This will handle all the queries at the backend and resolve all the conflicts and this should be stable at all time to exsure smooth functioning.
+    \item Notifier: This will notify the users for next dosage.
+    \item Campus Residents : These users will be able to book the slot for vaccination, get notified and will be able to download the certificate after vaccination.
+    \item Healthcare staff: These users will vaccinate the college residents so they will be able to update their schedule and maintain the stock of vaccines and order it in case of need.
+    \item CMHC admins: These will be able to view the statistics of this vaccination drive and will entertain the vaccines requests made by healthcare staff. 
+    \item System Administrator: This will be responsible to keep the servers up and running at all times.
+\end{itemize}
+%------------------------------------------------------------------------
+\subsection{Workflow and Usecases}
+\subsubsection{User Authentication}
+\begin{itemize}
+    \item Initially users will be asked to register themselves using the institute email id and provide user type i.e. Campus Residents, Healthcare Staff, CHMC Admin
+    \item User will create password, hash of  which will be stored in the database along with the user details.
+    \item There will be an option of forgot password using which user will be able to change their password
+    \item Just after the registration they will be asked their personal info based on the user type they provided. Different Info will be asked based on the user type.
+    \item Users will be able to login using emailid and password.
+\end{itemize} 
+
+\subsubsection{Campus Residents}
+\begin{itemize}
+    \item Personal Info will contain Name , Age , Sex, Previous Disease History, Current Health Conditions, Number of doses taken(0 initially)
+    \item Residents will see a dashboard containing all their personal info, allowing them to edit and download the vaccination certificate if applicable.
+    \item After logging in, residents will see a dashboard showing all the slots of healthcare staff along with their dates, approximate timings and location.
+    \item Residents will be able to apply on slots. They will also be able to cancel or postpone the slots in case they want.
+    \item After getting the status approved users will be able to see exact timing of their vaccination slot.
+    \item Users will be notified after prescribed days of ist dosage of vaccination when to take next dosage via their email id.
+\end{itemize}
+
+\subsubsection{Healthcare Staff}
+\begin{itemize}
+    \item Personal Info will contain Name , Designation, Available Timings, Available Days.
+    \item When Healthcare staff login, there will be a dashboard containing all their personal info, allowing them to edit and review the information.
+    \item There will be a dashboard where staff will be able to create vaccination slots providing info such as date, approximate timings , location , maximum allowed people . 
+    \item They will see another dashboard showing all their created slots clicking on which will show them all the residents who applied on that slot. They can review the info of these people and prioritise them based on their health conditions, previous disease history and will approve the slot along with exact timings of vaccination.
+    \item They will also be able to postpone and cancel the slot in case of emergencies.
+    \item After vaccination the particular person in a given slot they will update it's status and slot will be deleted.
+    \item There will be another dashboard where staff will have two option of different type of vaccines, selecting a given type will list the info of particular vaccines i.e. remaining doses, Expired doses.
+    \item In case a vaccine is about to expire, there will be another screen where they will be able to order the vaccines providing info of the type and number of doses.
+    \item When a vaccination box arrives they will have to make entry of the vaccination box in the database adding info about no. of boxes, date of arrival along with date of expiry. There will be a different screen for the users allowing them to handle this. They will also have to update when the vaccination box is opened and used. Info about number of vaccines remaining and used will be handled in the background by the backend.
+\end{itemize}
+
+\subsubsection{CHMC Admins}
+\begin{itemize}
+    \item Personal Info will contain Name, Designation
+    \item After logging in they will be able to see the statistics of vaccination drive i.e. number of people vaccinated, Remaining number to be vaccinated and many more.
+    \item They will be able to see the requests made by healthcare staff for vaccines and hence they will arrange the vaccines.
+\end{itemize}
+%------------------------------------------------------------------------
+
+\section{Conclusion}
+We have provided a solution of vaccinating 400 residents on campus. This solution tries to deal with some of the challenges proposed before for efficient vaccination drive. For example our solution tries to maintain social distancing because it uses appointment based solution, prioritization problem has also been handled by the healthcare staff where they can prioritize people based on their background. However, this solution of manually prioritizing the residents is not an efficient one as it involves manual work.
+
+\section{Future Work}
+Some of techniques can be improved in the future to solve further problems. For examples Drones can be used for transportation of vaccines from one place to another, a Prioritization model can be made which automatically prioritize the residents without involving manual work. Also a hardware or an IOT like system can be made which keeps track of vaccines and updates the healthcare staff without manually handling the work.
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{egbib}
+}
+
+\end{document}
